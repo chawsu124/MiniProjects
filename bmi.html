@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <!-- <link rel="stylesheet" href="../MybootstrapExercises/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: darkslategray;
+        }
+        .container {
+            margin-top: 80px;
+            max-width: 500px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center fs-3 fw-bolder bg-dark text-white p-3">BMI Calculator</div>
+            <div class="card-body">
+                <form class="w-50 m-auto" action="#">
+                    <div class="form-group">
+                        <label for="" class="fs-5">Weight :</label>
+                        <input type="number" id="weight" class="form-control" placeholder="Weight in Kg">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="fs-5">Height :</label>
+                        <input type="text" id="height" class="form-control" placeholder="Height in Ft">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="fs-5">BMI :</label>
+                        <input type="number" id="bmiValue" class="form-control" placeholder="Your BMI Result">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success" onclick="getbmi()">Check BMI</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer bg-dark text-white text-center p-3 fs-5">A healthy BMI ranges between 19 and 25</div>
+        </div>
+    </div>
+
+    <script>
+        function getbmi(){
+            var weight = document.querySelector("#weight").value;
+            var height = document.querySelector("#height").value;
+
+            height = height * 12;
+            height = height * 0.025; // now height in meter
+
+            var bmiValue = weight / (Math.pow(height,2));
+            bmiValue = Math.round(bmiValue);
+
+            document.querySelector("#bmiValue").value = bmiValue;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="../MybootstrapExercises/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../MybootstrapExercises/bootstrap/js/popper.min.js"></script>
+    <script src="../MybootstrapExercises/bootstrap/js/jquery.slim.min.js"></script> -->
+</body>
+</html>
